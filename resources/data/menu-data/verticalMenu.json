@@ -1,0 +1,55 @@
+{
+    "menu": [
+        {
+            "url": "home",
+            "name": "Home",
+            "icon": "home",
+            "slug": "home"
+        },
+        {
+            "name": "Master Data",
+            "icon": "database",
+            "slug": "",
+            "badge": "5",
+            "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
+            "submenu": [
+                {
+                    "url": "master-data/users",
+                    "name": "Users",
+                    "icon": "circle",
+                    "slug": "users"
+                },
+                {
+                    "url": "master-data/campaigns",
+                    "name": "Campaigns",
+                    "icon": "circle",
+                    "slug": "campaigns"
+                },
+                {
+                    "url": "master-data/payment-methods",
+                    "name": "Payment Methods",
+                    "icon": "circle",
+                    "slug": "payment-methods"
+                },
+                {
+                    "url": "master-data/categories",
+                    "name": "Categories",
+                    "icon": "circle",
+                    "slug": "categories"
+                },
+                {
+                    "url": "master-data/organizations",
+                    "name": "Organizations",
+                    "icon": "circle",
+                    "slug": "organizations"
+                }
+            ]
+        },
+        {
+            "url": "invoices",
+            "name": "Invoices",
+            "icon": "dollar-sign",
+            "slug": "invoices"
+        }
+    ]
+}
