@@ -94,7 +94,8 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        $campaign = Campaign::find($id)->with(['category', 'organization'])->first();
+        // ? Find campaign by ID and show their relationship data
+        $campaign = Campaign::with(['category', 'organization'])->find($id);
 
         if ($campaign) {
             return ResponseFormatter::success($campaign, 'Data campaign berhasil diambil');

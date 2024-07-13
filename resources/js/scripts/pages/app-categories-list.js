@@ -1,5 +1,5 @@
 /*=========================================================================================
-    File Name: app-user-list.js
+    File Name: app-campaign-list.js
     Description: User List page
     --------------------------------------------------------------------------------------
     Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
@@ -47,9 +47,8 @@ $(function () {
             columns: [
                 // columns according to JSON
                 { data: "" },
-                { data: "full_name" },
-                { data: "username" },
-                { data: "email" },
+                { data: "name" },
+                { data: "description" },
                 { data: "created_at" },
                 { data: "updated_at" },
                 { data: "" },
@@ -65,37 +64,37 @@ $(function () {
                         return "";
                     },
                 },
-                {
-                    // Actions
-                    targets: -1,
-                    title: "Actions",
-                    orderable: false,
-                    render: function (data, type, full, meta) {
-                        return (
-                            '<div class="btn-group">' +
-                            '<a class="btn btn-sm dropdown-toggle hide-arrow" data-bs-toggle="dropdown">' +
-                            feather.icons["more-vertical"].toSvg({
-                                class: "font-small-4",
-                            }) +
-                            "</a>" +
-                            '<div class="dropdown-menu dropdown-menu-end">' +
-                            '<a href="' +
-                            userView +
-                            '" class="dropdown-item">' +
-                            feather.icons["file-text"].toSvg({
-                                class: "font-small-4 me-50",
-                            }) +
-                            "Details</a>" +
-                            '<a href="javascript:;" class="dropdown-item delete-record">' +
-                            feather.icons["trash-2"].toSvg({
-                                class: "font-small-4 me-50",
-                            }) +
-                            "Delete</a></div>" +
-                            "</div>" +
-                            "</div>"
-                        );
-                    },
-                },
+                // {
+                //     // Actions
+                //     targets: -1,
+                //     title: "Actions",
+                //     orderable: false,
+                //     render: function (data, type, full, meta) {
+                //         return (
+                //             '<div class="btn-group">' +
+                //             '<a class="btn btn-sm dropdown-toggle hide-arrow" data-bs-toggle="dropdown">' +
+                //             feather.icons["more-vertical"].toSvg({
+                //                 class: "font-small-4",
+                //             }) +
+                //             "</a>" +
+                //             '<div class="dropdown-menu dropdown-menu-end">' +
+                //             '<a href="' +
+                //             userView +
+                //             '" class="dropdown-item">' +
+                //             feather.icons["file-text"].toSvg({
+                //                 class: "font-small-4 me-50",
+                //             }) +
+                //             "Details</a>" +
+                //             '<a href="javascript:;" class="dropdown-item delete-record">' +
+                //             feather.icons["trash-2"].toSvg({
+                //                 class: "font-small-4 me-50",
+                //             }) +
+                //             "Delete</a></div>" +
+                //             "</div>" +
+                //             "</div>"
+                //         );
+                //     },
+                // },
             ],
             order: [[1, "desc"]],
             dom:
@@ -180,7 +179,7 @@ $(function () {
                     },
                 },
                 {
-                    text: "Add New User",
+                    text: "Add New Category",
                     className: "add-new btn btn-primary",
                     attr: {
                         "data-bs-toggle": "modal",

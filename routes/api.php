@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CampaignController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\OrganizationController;
 use App\Http\Controllers\API\UserController;
 
@@ -86,10 +87,64 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
         */
         Route::group(['prefix' => 'users'], function () {
             Route::get('/', [UserController::class, 'index']);
+            Route::get('/profile', [UserController::class, 'profile']);
             Route::get('/{id}', [UserController::class, 'show']);
             Route::post('/', [UserController::class, 'store']);
             Route::put('/{id}', [UserController::class, 'update']);
             Route::delete('/{id}', [UserController::class, 'destroy']);
         });
     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Invoices Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'invoices'], function () {
+        Route::get('/', [InvoiceController::class, 'index']);
+        Route::get('/{id}', [InvoiceController::class, 'show']);
+        Route::post('/', [InvoiceController::class, 'store']);
+        Route::put('/{id}', [InvoiceController::class, 'update']);
+        Route::delete('/{id}', [InvoiceController::class, 'destroy']);
+    });
+});
+
+/*
+|--------------------------------------------------------------------------
+| Campaigns Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'campaigns'], function () {
+    Route::get('/', [CampaignController::class, 'index']);
+    Route::get('/{id}', [CampaignController::class, 'show']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Categories Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'categories'], function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/{id}', [CategoryController::class, 'show']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Organizations Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'organizations'], function () {
+    Route::get('/', [OrganizationController::class, 'index']);
+    Route::get('/{id}', [OrganizationController::class, 'show']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Invoices Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'invoices'], function () {
+    Route::get('/', [InvoiceController::class, 'index']);
+    Route::get('/{id}', [InvoiceController::class, 'show']);
 });

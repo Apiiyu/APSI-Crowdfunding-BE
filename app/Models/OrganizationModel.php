@@ -37,6 +37,6 @@ class OrganizationModel extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function campaigns(): HasMany {
-        return $this->hasMany(Campaign::class);
+        return $this->hasMany(Campaign::class, 'organization_id');
     }
 }

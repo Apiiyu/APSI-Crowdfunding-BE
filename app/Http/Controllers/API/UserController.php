@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -43,6 +44,16 @@ class UserController extends Controller
             $user->paginate($limit),
             'Data list user berhasil',
         );
+    }
+
+    /**
+     * Display a detail profile based on token.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile() {
+        $user = Auth::user();
+        return ResponseFormatter::success($user, 'Data profile user berhasil');
     }
 
     /**

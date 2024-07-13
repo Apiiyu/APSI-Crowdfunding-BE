@@ -80,7 +80,8 @@ class OrganizationController extends Controller
      */
     public function show($id)
     {
-        $organization = OrganizationModel::find($id);
+        // Show organization data based on id and their relationship using row query
+        $organization = OrganizationModel::with(['campaigns', 'campaigns.category'])->find($id);
 
         if ($organization) {
             return ResponseFormatter::success($organization, 'Data organization berhasil diambil');

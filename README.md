@@ -1,64 +1,137 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🌟 APSI-Crowdfunding Backend
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project built with PHP, Laravel 10, TailwindCSS, AlpineJS, and Much More.
 
-## About Laravel
+## Starter Introduction
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This application use OOP Paradigm and MVC pattern. Here you can learn a little about MVC pattern, [Visit me](https://www.dicoding.com/blog/apa-itu-mvc-pahami-konsepnya/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🎖️ Web Technologies
 
-## Learning Laravel
+| Technology  | Description                                                                     | Version |
+| ----------- | ------------------------------------------------------------------------------- | ------- |
+| TailwindCSS | A utility-first CSS framework for rapidly building custom user interfaces.      | ^3.1.0  |
+| PHP         | JPHP is a general-purpose scripting language geared towards web development.    | ^8.0    |
+| Laravel     | Laravel is a PHP web application framework with expressive, elegant syntax.     | ^10.0   |
+| AlpineJS    | Alpine is a rugged, minimal tool for composing behavior directly in your markup | ^3.0.6  |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Setup Project
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To get this project up and running in your development environment, follow these step-by-step instructions.
 
-## Laravel Sponsors
+### 🍴 Prerequisites
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+We need to install or make sure that these tools are pre-installed on your machine:
 
-### Premium Partners
+-   [PHP](https://www.php.net/downloads): It is a popular general-purpose scripting language that is especially suited to web development.
+-   [Composer](https://getcomposer.org/download/): It is a dependency manager for PHP.
+-   [NodeJS](https://nodejs.org/en/download/): It is a JavaScript runtime build.
+-   [Git](https://git-scm.com/downloads): It is an open source version control system.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 🔍 Usage
 
-## Contributing
+### How To Use
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-## Code of Conduct
+### 🚀 Install Project
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Clone the Repository
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/Apiiyu/APSI-Crowdfunding-BE.git
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. Install dependencies using composer
 
-## License
+```shell
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. Change **.env.example** to **.env**
+
+You must change the .env.example to .env and match it with you local machine.
+
+5. Generate key
+
+```shell
+php artisan key:generate
+```
+
+7. Install dependencies using npm
+
+```shell
+npm install
+```
+
+8. Compile all javascript and css
+
+```shell
+npm run dev
+```
+
+9. Adjust the database configuration in the .env file
+
+```shell
+DB_CONNECTION=pgsql // In this case we use PostgreSQL
+DB_HOST=127.0.0.1
+DB_PORT=5432 // Default port for PostgreSQL
+DB_DATABASE=apsi_crowdfunding // Your database name. If you don't have it, create a new one
+DB_USERNAME=postgres // Your database username
+DB_PASSWORD=postgres // Your database password
+```
+
+10. Migrate the database and seed the data
+
+```shell
+php artisan migrate --seed
+```
+
+11. Run the application
+
+```shell
+php artisan serve
+```
+
+12. Open your browser and go to `http://127.0.0.1:8000`
+13. You can login with this account:
+    -   Email: admin@rpu.co.id
+    -   Password: password
+
+---
+
+### ⚒️ How to Contribute
+
+Want to contribute? Great!
+
+To fix a bug or enhance an existing module, follow these steps:
+
+-   Fork the repo
+-   Create a new branch (`git checkout -b improve-feature`)
+-   Make the appropriate changes in the files
+-   Add changes to reflect the changes made
+-   Commit your changes (`git commit -am 'Improve feature'`)
+-   Push to the branch (`git push origin improve-feature`)
+-   Create a Pull Request
+
+### 📩 Bug / Feature Request
+
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/Apiiyu/APSI-Crowdfunding-BE/issues/new) by including your search query and the expected result.
+
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/Apiiyu/APSI-Crowdfunding-BE/issues/new). Please include sample queries and their corresponding results.
+
+## 📜 Credits
+
+List your collaborators, if any, with links to their GitHub profiles.
+
+I'd like to acknowledge my collaborators, who contributed to the success of this project. Below are links to their GitHub profiles.
+
+Furthermore, I utilized certain third-party assets that require attribution. Find the creators' links in this section.
+
+If I followed tutorials during development, I'd include the links to those as well.
+
+👦 Rafi Khoirulloh <br>
+Email: khoirulloh.rafi2@gmail.com <br>
+GitHub: @apiiyu

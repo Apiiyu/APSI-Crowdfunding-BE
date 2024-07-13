@@ -44,11 +44,71 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
   |--------------------------------------------------------------------------
   */
   Route::group(['prefix' => 'master-data'], function () {
-    Route::get('users', [UserController::class, 'index'])->name('users');
-    Route::get('campaigns', [CampaignsController::class, 'index'])->name('campaigns');
-    Route::get('payment-methods', [PaymentMethodsController::class, 'index'])->name('payment-methods');
-    Route::get('categories', [CategoriesController::class, 'index'])->name('categories');
-    Route::get('organizations', [OrganizationsController::class, 'index'])->name('organizations');
+    /*
+    |--------------------------------------------------------------------------
+    | Users Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'users'], function () {
+      Route::get('/', [UserController::class, 'index'])->name('users.index');
+      Route::get('/{id}', [UserController::class, 'show']);
+      Route::post('/', [UserController::class, 'store'])->name('users.store');
+      Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
+      Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.delete');
+    })->name('users');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Campaigns Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'campaigns'], function () {
+      Route::get('/', [CampaignsController::class, 'index'])->name('campaigns.index');
+      Route::get('/{id}', [CampaignsController::class, 'show']);
+      Route::post('/', [CampaignsController::class, 'store'])->name('campaigns.store');
+      Route::put('/{id}', [CampaignsController::class, 'update'])->name('campaigns.update');
+      Route::delete('/{id}', [CampaignsController::class, 'destroy'])->name('campaigns.delete');
+    })->name('campaigns');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Categories Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'categories'], function () {
+      Route::get('/', [CategoriesController::class, 'index'])->name('categories.index');
+      Route::get('/{id}', [CategoriesController::class, 'show']);
+      Route::post('/', [CategoriesController::class, 'store'])->name('categories.store');
+      Route::put('/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+      Route::delete('/{id}', [CategoriesController::class, 'destroy'])->name('categories.delete');
+    })->name('categories');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Organizations Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'organizations'], function () {
+      Route::get('/', [OrganizationsController::class, 'index']);
+      Route::get('/{id}', [OrganizationsController::class, 'show']);
+      Route::post('/', [OrganizationsController::class, 'store'])->name('organizations.store');
+      Route::put('/{id}', [OrganizationsController::class, 'update'])->name('organizations.update');
+      Route::delete('/{id}', [OrganizationsController::class, 'destroy'])->name('organizations.delete');
+    })->name('organizations');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Payment Methods Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'payment-methods'], function () {
+      Route::get('/', [PaymentMethodsController::class, 'index']);
+      Route::get('/{id}', [PaymentMethodsController::class, 'show']);
+      Route::post('/', [PaymentMethodsController::class, 'store'])->name('payment-methods.store');
+      Route::put('/{id}', [PaymentMethodsController::class, 'update'])->name('payment-methods.update');
+      Route::delete('/{id}', [PaymentMethodsController::class, 'destroy'])->name('payment-methods.delete');
+    })->name('payment-methods');
+
   });
 
   /*

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('content.master-data.users');
+        $users = User::all();
+
+        return view('content.master-data.users', compact('users'));
     }
 
     /**
@@ -30,11 +33,31 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+        ]);
+
+        // ? We need generate a random password for the user. Because we don't have a password field in the form.
+        $request->merge([
+            'password' => bcrypt('password')
+        ]);
+
+        if ($request->hasFile('avatar')) {
+            $request->merge([
+                'avatar' => $request->file('avatar')->store('uploads/user-avatars', 'public')
+            ]);
+        }
+
+        User::create($request->all());
+
+        return redirect()->route('users.index')
+            ->with('success', 'User created successfully.');
     }
 
     /**

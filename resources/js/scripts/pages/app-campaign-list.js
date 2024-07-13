@@ -1,5 +1,5 @@
 /*=========================================================================================
-    File Name: app-user-list.js
+    File Name: app-campaign-list.js
     Description: User List page
     --------------------------------------------------------------------------------------
     Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
@@ -47,11 +47,11 @@ $(function () {
             columns: [
                 // columns according to JSON
                 { data: "" },
-                { data: "full_name" },
-                { data: "username" },
-                { data: "email" },
-                { data: "created_at" },
-                { data: "updated_at" },
+                { data: "title" },
+                { data: "name" },
+                { data: "organization" },
+                { data: "start_date" },
+                { data: "end_date" },
                 { data: "" },
             ],
             columnDefs: [
@@ -180,7 +180,7 @@ $(function () {
                     },
                 },
                 {
-                    text: "Add New User",
+                    text: "Add New Campaign",
                     className: "add-new btn btn-primary",
                     attr: {
                         "data-bs-toggle": "modal",

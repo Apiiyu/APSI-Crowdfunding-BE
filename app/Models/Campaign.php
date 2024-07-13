@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Campaign extends Model
 {
@@ -33,9 +34,10 @@ class Campaign extends Model
      *
      * @var array<int, string>
      */
-    // protected $hidden = [
-
-    // ];
+    protected $hidden = [
+        'category_id',
+        'organization_id',
+    ];
 
     /**
      * Get the category that owns the Campaign
@@ -54,5 +56,14 @@ class Campaign extends Model
      */
     public function organization(): BelongsTo {
         return $this->belongsTo(OrganizationModel::class, 'organization_id');
+    }
+
+    /**
+     * Get the Invoices for the Campaign
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function invoices(): HasMany {
+        return $this->hasMany(Invoice::class);
     }
 }

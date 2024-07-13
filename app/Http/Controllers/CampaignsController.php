@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
+use App\Models\Category;
+use App\Models\OrganizationModel;
 use Illuminate\Http\Request;
 
 class CampaignsController extends Controller
@@ -13,7 +16,18 @@ class CampaignsController extends Controller
      */
     public function index()
     {
-        return view('content.master-data.campaigns');
+        $campaigns = Campaign::with([
+            'category',
+            'organization'
+        ])->get();
+        $categories = Category::all();
+        $organizations = OrganizationModel::all();
+
+        return view('content.master-data.campaigns', compact([
+            'campaigns',
+            'categories',
+            'organizations'
+        ]));
     }
 
     /**
@@ -34,7 +48,29 @@ class CampaignsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_id' => 'required',
+            'organization_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'target_fund' => 'required',
+            'current_fund' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $request->merge([
+                'image' => $request->file('image')->store('uploads/campaigns', 'public')
+            ]);
+        }
+
+
+        Campaign::create($request->all());
+
+        return redirect()->route('campaigns.index')
+            ->with('success', 'Campaign created successfully.');
     }
 
     /**
